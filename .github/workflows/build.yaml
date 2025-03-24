@@ -21,6 +21,7 @@ jobs:
       run: |
         #### AUFGABE COMPILE, DOCKER BUILD UND PUSH
           # hier ist Platz für maven package und docker build
-          mvn package 
+          mvn package
           docker build -t ghcr.io/selinaa64/petclinic:latest .
-          docker push ghcr.io -u selinaa64 -p $GITHUB_ACCESSTOKEN
+          docker login -u selinaa64 -p $GITHUB_ACCESSTOKEN
+          docker push ghcr.io/selinaa64/petclinic:latest
